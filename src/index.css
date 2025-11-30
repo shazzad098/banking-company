@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* আমাদের ডিজাইনের কালার প্যালেট */
+  --color-primary: #CAFF33;
+  --color-dark: #191919;
+  --color-darkLight: #262626;
+  --color-grey: #B3B3B3;
+
+  /* ফন্ট ফ্যামিলি */
+  --font-sans: "Inter", sans-serif;
+  
+  /* কন্টেইনার সেন্টারিং (আগের v3 এর মতো কাজ করার জন্য) */
+  --container-center: true;
+  --container-padding: 1rem;
+}
+
+/* বেসিক বডি স্টাইল */
+body {
+  background-color: var(--color-dark);
+  color: white;
+  font-family: var(--font-sans);
+}
