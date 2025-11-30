@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
+import logo from '../assets/abcd-bank-logo.png'; // ⚠️ ধাপ ১: লোগো ইমেজ ইমপোর্ট করুন (আপনার ফাইল পাথ ঠিক রাখুন)
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,17 +17,20 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 bg-[#191919]/90 backdrop-blur-md border-b border-darkLight px-4 py-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo (পরিবর্তন করা হয়েছে) */}
         <Link
           to="/"
           className="flex items-center gap-2"
           onClick={() => setIsOpen(false)}
         >
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+          {/* <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
             <span className="text-dark font-bold">Y</span>
           </div>
-          <span className="text-xl font-bold text-white">YourBank</span>
+          <span className="text-xl font-bold text-white">YourBank</span> */}
+          
+          <img src={logo} alt="ABCD Bank Logo" className="h-10 w-auto" /> {/* ইমেজ লোগো বসানো হয়েছে */}
         </Link>
+        
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-sm text-grey">
           <Link to="/" className={isActive("/")}>
@@ -42,6 +46,8 @@ const Navbar = () => {
             Security
           </Link>
         </div>
+        
+        {/* Auth Buttons */}
         <div className="hidden md:flex gap-4 items-center">
           {/* Sign Up Button Wrap with Link */}
           <Link to="/signup">
@@ -56,6 +62,7 @@ const Navbar = () => {
             </Button>
           </Link>
         </div>
+        
         {/* Mobile Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -99,6 +106,8 @@ const Navbar = () => {
               Security
             </Link>
           </div>
+          
+          {/* Mobile Auth Buttons */}
           <div className="flex flex-col gap-4 mt-4 border-t border-white/10 pt-6">
             {/* Mobile Sign Up Button Wrap with Link */}
             <Link to="/signup" onClick={() => setIsOpen(false)}>
